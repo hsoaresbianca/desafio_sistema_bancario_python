@@ -17,5 +17,5 @@
 - No fim da listagem deve ser exibido o saldo atual da conta.
 - Os valores devem ser exibidos utilizando o formato R$ xxx.xx
 
-## Repositório DIO:
+## Repositório da DIO:
 - https://github.com/digitalinnovationone/trilha-python-dio/blob/main/00%20-%20Fundamentos/desafio.py 
