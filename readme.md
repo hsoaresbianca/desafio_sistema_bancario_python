@@ -1,8 +1,6 @@
 # Desafio Criando Um Sistema Bancário
-
-## Repositório da Trilha Python DIO:
-- Este projeto foi desenvolvido na Formação Python Developer DIO.
-- [REPOSITÓRIO DA TRILHA PYTHON DIO](https://github.com/digitalinnovationone/trilha-python-dio/tree/main)
+- Este projeto foi desenvolvido na [Formação Python Developer DIO](https://www.dio.me/bootcamp/formacao-python-developer).
+- Acesse o [REPOSITÓRIO DA TRILHA PYTHON DIO](https://github.com/digitalinnovationone/trilha-python-dio/tree/main).
 
 # DESAFIO 1
 ## Objetivo Geral:
@@ -62,3 +60,13 @@
 
 ## Dica para o desafio 2:
 - Para vincular um usuário a uma conta, filtre a lista de usuários buscando o numero do CPF informado para cada usuário da lista.
+
+# DESAFIO 3
+## Objetivo Geral:
+ - Atualizar a implementação do sistema bancário, para armazenar os dados de clientes e contas bancárias em objetos ao invés de dicionários.
+ - Iniciar a modelagem do sistema bancário em Programação Orientada a Objetos (POO).
+ - Adicionar classes para cliente e para as operações bancárias depósito e saque.
+ - O código deve seguir o modelo de classes UML. ![Imagem de referência](https://academiapme-my.sharepoint.com/personal/renato_dio_me/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Frenato%5Fdio%5Fme%2FDocuments%2FDigital%20Innovation%20One%2Fslides%20aulas%20diversas%2FTrilhas%2FPython%20Developer%2FTrilha%20Python%20%2D%20desafio%2Epng&parent=%2Fpersonal%2Frenato%5Fdio%5Fme%2FDocuments%2FDigital%20Innovation%20One%2Fslides%20aulas%20diversas%2FTrilhas%2FPython%20Developer&ga=1)
+
+## Desafio extra:
+- Após concluir a modelagem das classes e a criação dos métodos. Atualizar os métodos que tratam as opções do menu, para funcionarem com as classes modeladas.
