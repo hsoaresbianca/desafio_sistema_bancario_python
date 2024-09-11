@@ -42,7 +42,7 @@
 ## Função Extrato:
 - Deve receber os argumentos por posição e nome.
 
-## Novas Funções:
+## Criar Novas Funções:
 - Função "criar usuário (cliente)".
 - Função "criar conta corrente".
 
