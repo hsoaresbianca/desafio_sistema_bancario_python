@@ -66,7 +66,8 @@
  - Atualizar a implementação do sistema bancário, para armazenar os dados de clientes e contas bancárias em objetos ao invés de dicionários.
  - Iniciar a modelagem do sistema bancário em Programação Orientada a Objetos (POO).
  - Adicionar classes para cliente e para as operações bancárias depósito e saque.
- - O código deve seguir o modelo de classes UML. ![Imagem de referência](https://academiapme-my.sharepoint.com/personal/renato_dio_me/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Frenato%5Fdio%5Fme%2FDocuments%2FDigital%20Innovation%20One%2Fslides%20aulas%20diversas%2FTrilhas%2FPython%20Developer%2FTrilha%20Python%20%2D%20desafio%2Epng&parent=%2Fpersonal%2Frenato%5Fdio%5Fme%2FDocuments%2FDigital%20Innovation%20One%2Fslides%20aulas%20diversas%2FTrilhas%2FPython%20Developer&ga=1)
+ - O código deve seguir o modelo de classes UML. Imagem de referência:![Imagem](https://github.com/user-attachments/assets/8af9d5e9-4c41-4b3d-8868-3b46d3834cf1)
+
 
 ## Desafio extra:
 - Após concluir a modelagem das classes e a criação dos métodos. Atualizar os métodos que tratam as opções do menu, para funcionarem com as classes modeladas.
