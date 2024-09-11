@@ -1,5 +1,5 @@
 # Criando Um Sistema Bancário com Python
-- Este projeto foi desenvolvido na [Formação Python Developer DIO](https://www.dio.me/bootcamp/formacao-python-developer).
+- Este projeto foi desenvolvido na [Formação Python Fundamentals DIO](https://www.dio.me/curso-python-do-zero).
 - Você pode dar um "fork" no [REPOSITÓRIO DA TRILHA PYTHON DIO](https://github.com/digitalinnovationone/trilha-python-dio/tree/main) para organizar suas alterações e evoluções mantendo uma referência direta ao código-fonte original.
 
 # DESAFIO 1
