@@ -68,6 +68,23 @@
  - Adicionar classes para cliente e para as operações bancárias depósito e saque.
  - O código deve seguir o modelo de classes UML. Imagem de referência:![Imagem](https://github.com/user-attachments/assets/8af9d5e9-4c41-4b3d-8868-3b46d3834cf1)
 
-
 ## Desafio extra:
 - Após concluir a modelagem das classes e a criação dos métodos. Atualizar os métodos que tratam as opções do menu, para funcionarem com as classes modeladas.
+
+# DESAFIO 4
+## Objetivo Geral:
+- Implementar as seguintes funcionalidades no sistema:
+- Decorador de log;
+- Gerador de relatórios;
+- Iterador Personalizado.
+
+## Decorador de Log:
+- Implemente um decorador que seja aplicado a todas as funções de transações (depósito, saque, criação de conta, etc).
+- Esse decorador deve registrar (printar) a data e hora de cada transação, bem como o tipo de transação.
+
+## Gerador de Relatórios
+- Crie um gerador que permita iterar sobre as transações de uma conta e retorne, uma a uma, as transações que foram realizadas.
+- Esse gerador deve também ter uma forma de filtrar as transações baseado em seu tipo (por exemplo: apenas saques ou apenas depósitos).
+
+## Iterador Personalizado:
+- Implemente um iterador personalizado ContaIterador que permita iterar sobre todas as contas do banco, retornando informações básica de cada conta (número, saldo atual, etc).
