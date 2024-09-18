@@ -1,5 +1,5 @@
 # Criando Um Sistema Bancário com Python
-- Este projeto foi desenvolvido na [Formação Python Fundamentals DIO](https://www.dio.me/curso-python-do-zero).
+- Este projeto foi desenvolvido na [Formação Python Fundamentals DIO](https://www.dio.me/curso-python-do-zero) com o expert [Guilherme Carvalho](https://github.com/guicarvalho).
 - Você pode dar um "fork" no [REPOSITÓRIO DA TRILHA PYTHON DIO](https://github.com/digitalinnovationone/trilha-python-dio/tree/main) para organizar suas alterações e evoluções mantendo uma referência direta ao código-fonte original.
 
 # DESAFIO 1
@@ -82,7 +82,7 @@
 - Implemente um decorador que seja aplicado a todas as funções de transações (depósito, saque, criação de conta, etc).
 - Esse decorador deve registrar (printar) a data e hora de cada transação, bem como o tipo de transação.
 
-## Gerador de Relatórios
+## Gerador de Relatórios:
 - Crie um gerador que permita iterar sobre as transações de uma conta e retorne, uma a uma, as transações que foram realizadas.
 - Esse gerador deve também ter uma forma de filtrar as transações baseado em seu tipo (por exemplo: apenas saques ou apenas depósitos).
 
