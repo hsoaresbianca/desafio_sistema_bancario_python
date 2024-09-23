@@ -88,3 +88,17 @@
 
 ## Iterador Personalizado:
 - Implemente um iterador personalizado ContaIterador que permita iterar sobre todas as contas do banco, retornando informações básica de cada conta (número, saldo atual, etc).
+
+# DEAFIO 5
+## Objetivo Geral:
+- Modificar o atual decorador de log, que imprime informações no console, para que ele salve essas informações em um arquivo de log, possibilitando uma revisão mais fácil e uma análise mais detalhada das operações dos usuários.
+
+## Modificando o Decorador de Log:
+- Requisitos. O decorador deve registrar o seguinte para cada chamada de função:
+1. Data e hora atuais;
+2. Nome da função;
+3. Argumentos da função;
+4. Valor retornado pela função;
+5. O arquivo de log deve ser chamado "log.txt";
+6. Se o arquivo "log.txt" já exisitir, os novos logs devem ser adicionados ao final do arquivo;
+7. Cada entrada de log deve estar em uma nova linha.
