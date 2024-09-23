@@ -1,6 +1,10 @@
 import textwrap
 from abc import ABC, abstractclassmethod, abstractproperty
 from datetime import datetime
+from pathlib import Path
+
+ROOT_PATH = Path(__file__).parent
+
 
 class ContasIterador:
     def __init__(self, contas):
@@ -32,6 +36,10 @@ class Cliente:
         self.indice_conta = 0
 
     def realizar_transacao(self, conta, transacao):
+        if len(conta.historico.transacoes_do_dia()) >= 2:
+            print("\n@@@ Você excedeu o número de transações permitidas para hoje! @@@")
+            return
+
         transacao.registrar(conta)
 
     def adicionar_conta(self, conta):
@@ -44,6 +52,9 @@ class PessoaFisica(Cliente):
         self.nome = nome
         self.data_nascimento = data_nascimento
         self.cpf = cpf
+
+    def __repr__(self) -> str:
+        return f"<{self.__class__.__name__}: ('{self.nome}', '{self.cpf}')>"
 
 
 class Conta:
@@ -112,6 +123,10 @@ class ContaCorrente(Conta):
         self._limite = limite
         self._limite_saques = limite_saques
 
+    @classmethod
+    def nova_conta(cls, cliente, numero, limite, limite_saques):
+        return cls(numero, cliente, limite, limite_saques)
+
     def sacar(self, valor):
         numero_saques = len(
             [transacao for transacao in self.historico.transacoes if transacao["tipo"] == Saque.__name__]
@@ -130,6 +145,9 @@ class ContaCorrente(Conta):
             return super().sacar(valor)
 
         return False
+
+    def __repr__(self):
+        return f"<{self.__class__.__name__}: ('{self.agencia}', '{self.numero}', '{self.cliente.nome}')>"
 
     def __str__(self):
         return f"""\
@@ -152,7 +170,7 @@ class Historico:
             {
                 "tipo": transacao.__class__.__name__,
                 "valor": transacao.valor,
-                "data": datetime.now().strftime("%d-%m-%Y %H:%M:%s"),
+                "data": datetime.utcnow().strftime("%d-%m-%Y %H:%M:%S"),
             }
         )
 
@@ -160,6 +178,15 @@ class Historico:
         for transacao in self._transacoes:
             if tipo_transacao is None or transacao["tipo"].lower() == tipo_transacao.lower():
                 yield transacao
+
+    def transacoes_do_dia(self):
+        data_atual = datetime.utcnow().date()
+        transacoes = []
+        for transacao in self._transacoes:
+            data_transacao = datetime.strptime(transacao["data"], "%d-%m-%Y %H:%M:%S").date()
+            if data_atual == data_transacao:
+                transacoes.append(transacao)
+        return transacoes
 
 
 class Transacao(ABC):
@@ -206,9 +233,13 @@ class Deposito(Transacao):
 def log_transacao(func):
     def envelope(*args, **kwargs):
         resultado = func(*args, **kwargs)
-        print(f"{datetime.now()}: {func.__name__.upper()}")
+        data_hora = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
+        with open(ROOT_PATH / "log.txt", "a") as arquivo:
+            arquivo.write(
+                f"[{data_hora}] Função '{func.__name__}' executada com argumentos {args} e {kwargs}. "
+                f"Retornou {resultado}\n"
+            )
         return resultado
-
     return envelope
 
 
@@ -294,9 +325,9 @@ def exibir_extrato(clientes):
     print("\n================ EXTRATO ================")
     extrato = ""
     tem_transacao = False
-    for transacao in conta.historico.gerar_relatorio(tipo_transacao="saque"):
+    for transacao in conta.historico.gerar_relatorio():
         tem_transacao = True
-        extrato += f"\n{transacao['tipo']}:\n\tR$ {transacao['valor']:.2f}"
+        extrato += f"\n{transacao['data']}\n{transacao['tipo']}:\n\tR$ {transacao['valor']:.2f}"
 
     if not tem_transacao:
         extrato = "Não foram realizadas movimentações"
@@ -335,7 +366,7 @@ def criar_conta(numero_conta, clientes, contas):
         print("\n@@@ Cliente não encontrado, fluxo de criação de conta encerrado! @@@")
         return
 
-    conta = ContaCorrente.nova_conta(cliente=cliente, numero=numero_conta)
+    conta = ContaCorrente.nova_conta(cliente=cliente, numero=numero_conta, limite=500, limite_saques=50)
     contas.append(conta)
     cliente.contas.append(conta)
 
